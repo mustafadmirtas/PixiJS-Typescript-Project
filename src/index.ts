@@ -23,16 +23,14 @@ export class GameManager {
     public constructor() {
         this.app = new PIXI.Application({ width: this._width, height: this._height, resolution: 1, backgroundColor: 0xcccccc, autoDensity: true });
         document.body.appendChild(this.app.view);
-        PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
-        PIXI.settings.PRECISION_VERTEX = PIXI.PRECISION.LOW;
-        PIXI.settings.CREATE_IMAGE_BITMAP = true;
+
         this.app.renderer.view.style.position = "absolute";
         this.app.renderer.view.style.display = "block";
 
         window.addEventListener("resize", () => {
             this.resize();
         });
-
+        //Load Assets
         this.app.loader.add('card1', 'assets/card1.png');
         this.app.loader.add('card2', 'assets/card2.png');
         this.app.loader.add('particle', 'assets/particle.png');
@@ -78,7 +76,7 @@ export class GameManager {
         let caseOneText: PIXI.Text = new PIXI.Text("Case One", { fontFamily: 'Arial', fontSize: 40, fill: 0xffffff, align: 'center' });
         caseOneText.anchor.set(0.5, 0.5);
         caseOneText.position.set(240, 100);
-        caseOneButton.position.set(350, 0);
+        caseOneButton.position.set(200, 0);
         caseOneButton.scale.set(0.5, 0.5);
         caseOneButton.addChild(caseOneText);
         caseOneButton.interactive = true;
@@ -100,7 +98,7 @@ export class GameManager {
         let caseTwoText: PIXI.Text = new PIXI.Text("Case Two", { fontFamily: 'Arial', fontSize: 40, fill: 0xffffff, align: 'center' });
         caseTwoText.anchor.set(0.5, 0.5);
         caseTwoText.position.set(240, 100);
-        caseTwoButton.position.set(600, 0);
+        caseTwoButton.position.set(450, 0);
         caseTwoButton.scale.set(0.5, 0.5);
         caseTwoButton.addChild(caseTwoText);
         caseTwoButton.interactive = true;
@@ -119,10 +117,10 @@ export class GameManager {
         this._gameContainer.addChild(caseTwoButton);
 
         let caseThreeButton: PIXI.Sprite = new PIXI.Sprite(PIXI.Texture.from("button"));
-        let caseThreeText: PIXI.Text = new PIXI.Text("Case Two", { fontFamily: 'Arial', fontSize: 40, fill: 0xffffff, align: 'center' });
+        let caseThreeText: PIXI.Text = new PIXI.Text("Case Three", { fontFamily: 'Arial', fontSize: 40, fill: 0xffffff, align: 'center' });
         caseThreeText.anchor.set(0.5, 0.5);
         caseThreeText.position.set(240, 100);
-        caseThreeButton.position.set(850, 0);
+        caseThreeButton.position.set(700, 0);
         caseThreeButton.scale.set(0.5, 0.5);
         caseThreeButton.addChild(caseThreeText);
         caseThreeButton.interactive = true;
